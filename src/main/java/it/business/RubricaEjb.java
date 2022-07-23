@@ -69,11 +69,23 @@ public class RubricaEjb implements RubricaEjbRemote, RubricaEjbLocal {
     	em.remove(contatto);
     }
     
+    public int eliminaNumPerContatto(Contatto contatto) {
+    	
+    	int numeroElimina=0;
+    	for(NumTelefono numero : contatto.getNumTelefoni()) {
+
+        	Query query=em.createQuery("DELETE FROM NumTelefono t where  t.numTelefono like :numero");
+        	query.setParameter("numero",numero.getNumTelefono() );
+        	numeroElimina=query.executeUpdate();
+    	}
+    	
+    	return numeroElimina;
+    	
+    }
     
-    
-    public Contatto update(Contatto contatto) {  /** Ipotizzo che nel
-    metodo update i numeri non vengano cambiati visto che non era specificato*/
-   
+    public Contatto update(Contatto contatto) {  
+    	   eliminaNumPerContatto( getContattoByID(contatto.getId()));  
+    	   
     	return em.merge(contatto);
     }
 	

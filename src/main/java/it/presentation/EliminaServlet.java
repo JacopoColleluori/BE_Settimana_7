@@ -26,6 +26,7 @@ public class EliminaServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	rubrica.elimina(Long.valueOf(request.getParameter("Id")));
+	request.getServletContext().getRequestDispatcher("/operazioneCompl.html").forward(request, response);
 	}
 
 }

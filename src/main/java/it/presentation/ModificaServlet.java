@@ -74,7 +74,7 @@ public class ModificaServlet extends HttpServlet {
 		
 			
 				rubrica.update(c);
-			
+				request.getServletContext().getRequestDispatcher("/operazioneCompl.html").forward(request, response);
 		
 	
 	}

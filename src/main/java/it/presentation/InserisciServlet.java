@@ -62,7 +62,7 @@ public class InserisciServlet extends HttpServlet {
 			
 			
 				rubrica.inserisci(c);
-			
+				request.getServletContext().getRequestDispatcher("/operazioneCompl.html").forward(request, response);
 		
 	
 	}
