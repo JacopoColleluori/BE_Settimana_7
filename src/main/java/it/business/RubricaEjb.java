@@ -83,8 +83,8 @@ public class RubricaEjb implements RubricaEjbRemote, RubricaEjbLocal {
     	
     }
     
-    public Contatto update(Contatto contatto) {  
-    	   eliminaNumPerContatto( getContattoByID(contatto.getId()));  
+    public Contatto update(Contatto contatto) {                     //Ho ipotizzato che nel modifica i due vecchi numeri venissero eliminati per i più nuovi
+    	   eliminaNumPerContatto(getContattoByID(contatto.getId()));  
     	   
     	return em.merge(contatto);
     }
